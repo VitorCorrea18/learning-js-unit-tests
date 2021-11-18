@@ -43,13 +43,33 @@ Retorno:
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    fail('Teste vazio!');
     // ESCREVA SEUS TESTES ABAIXO:
+    expect(getCharacter()).toBeUndefined();
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    const arya = {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: [ 'Not today', 'A girl has no name.' ]
+    };
+    expect(getCharacter('Arya')).toMatchObject(arya);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    const brienne = {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: [ 'Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.' ]
+    };
+    expect(getCharacter('Brienne')).toMatchObject(brienne);
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    const melissandre = {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: [ 'Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.' ]
+    };
+    expect(getCharacter('Melissandre')).toMatchObject(melissandre);
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    expect(getCharacter('ARYA')).toMatchObject(arya);
     // Teste se os parâmetros não são Case Sensitive.
+    expect(getCharacter('fulano')).toBeUndefined();
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
   });
 });
