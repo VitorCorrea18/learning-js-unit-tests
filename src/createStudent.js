@@ -23,6 +23,4 @@ const createStudent = (nome) => {
   return student;
 };
 
-  console.log(createStudent('Leandrão, o Lobo Solitário'));
-
 module.exports = createStudent;
