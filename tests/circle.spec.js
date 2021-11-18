@@ -25,10 +25,12 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    expect(circle('2')).toBeUndefined();
     expect(circle(1)).toBeInstanceOf(Object);
     expect(circle(1)).toHaveProperty('radius', 'area', 'circumference');
+  })
+  it('Verifica se ao receber um parâmetro vazio ou um NAN retorna `undefined`.', () =>{
     expect(circle()).toBeUndefined();
+    expect(circle('2')).toBeUndefined();
   })
 
   it('Verifica se o parametro 2 retorna circunferência 12,56', () => {
