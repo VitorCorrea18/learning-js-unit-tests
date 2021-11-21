@@ -10,7 +10,7 @@
 
   A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
   Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o bom desenvolvimento do sistema. 
-  Eles guiarão você pelo desenvolvimento.
+  Eles guiarão você pelo desenvolvimento. 
 
   Parâmetros:
   - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
@@ -44,6 +44,19 @@
   
 */
 
-const createMenu = () => {};
+const createMenu = (entry) => {
+  const menu = entry;
+  const fn = {
+    fetchMenu: () => menu,
+  };
+  return fn;
+};
+
+const meuRestaurante = createMenu({
+  food: { coxinha: 3.90, sanduiche: 9.90 },
+  drinks: { agua: 3.90, cerveja: 6.90 },
+});
+
+console.log(meuRestaurante.fetchMenu());
 
 module.exports = createMenu;

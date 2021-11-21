@@ -52,7 +52,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // chave fetchMenu, a qual tem como valor uma função.
     const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
-    expect(objetoRetornado).toHaveProperty('fetchMenu').toBeInstanceOf(Object);
+    expect(objetoRetornado.fetchMenu).toBeInstanceOf(Function);
   })
 
   it('Verifique se "objetoRetornado.fetchMenu()" retorna um objeto cujas chaves são somente `food` e `drink`', () => {
@@ -62,7 +62,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
-    expect(objetoRetornado.fetchMenu()).toContainEqual({ food: {}, drink: {} });
+    expect(objetoRetornado.fetchMenu()).toEqual({ food: {}, drink: {} });
     // ```
   })
 
