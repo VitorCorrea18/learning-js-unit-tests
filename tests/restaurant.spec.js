@@ -98,21 +98,34 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     expect(objetoRetornado.consumption).toEqual(['coxinha']);
   })
+
+  it ('Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.', () => {
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
     // ```
-    // objetoRetornado.order("coxinha");
-    // objetoRetornado.order("agua");
-    // objetoRetornado.order("sopa");
-    // objetoRetornado.order("sashimi");
+    const objetoQualquer = { food: {'lasanha': 15.90, 'pizza': 29.90}, drink: {'vinho': 7.90, 'agua': 4.90} };
+    const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("sopa");
+    objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
+    expect(objetoRetornado.consumption).toEqual(["coxinha", "agua", "sopa", "sashimi"]);
+  })
+
+  it ('Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.', () => {
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.order('agua');
-    // objetoRetornado.order('coxinha');
+    const objetoQualquer = { food: {'lasanha': 15.90, 'pizza': 29.90}, drink: {'vinho': 7.90, 'agua': 4.90} };
+    const objetoRetornado = createMenu(objetoQualquer);
+    objetoRetornado.order('coxinha');
+    objetoRetornado.order('agua');
+    objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    expect(objetoRetornado.consumption).toEqual(['coxinha', 'agua', 'coxinha']);
+
+  })
     // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
     // objetoRetornado.order('coxinha');
