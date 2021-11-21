@@ -74,13 +74,17 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     expect(objetoRetornado.fetchMenu()).toBe(objetoQualquer);
     // ```
-
   })
+
+  it ('Verifique se `objetoRetornado.consumption`, após a criação do menu, retorna um array vazio.', () => {
     // TESTE 4: Verifique se 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
-    // const objetoRetornado = createMenu(objetoQualquer);
+    const objetoQualquer = { food: {'lasanha': 15.90, 'pizza': 29.90}, drink: {'vinho': 7.90, 'agua': 4.90} };
+    const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
     // ```
+    expect(objetoRetornado.consumption).toEqual([]);
+  })
     // TESTE 5: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado,
     // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
     // ao array retornado em `objetoRetornado.consumption`.

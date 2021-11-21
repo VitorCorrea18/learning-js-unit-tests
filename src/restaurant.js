@@ -48,6 +48,7 @@ const createMenu = (entry) => {
   const menu = entry;
   const fn = {
     fetchMenu: () => menu,
+    consumption: [],
   };
   return fn;
 };
@@ -57,6 +58,6 @@ const meuRestaurante = createMenu({
   drinks: { agua: 3.90, cerveja: 6.90 },
 });
 
-console.log(meuRestaurante.fetchMenu());
+console.log(meuRestaurante);
 
 module.exports = createMenu;
