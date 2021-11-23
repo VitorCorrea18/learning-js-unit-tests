@@ -50,15 +50,18 @@ const createMenu = (entry) => {
     fetchMenu: () => menu,
     consumption: [],
     order: (order) => fn.consumption.push(order),
+    pay() {
+      let total = 0;
+      fn.consumption.forEach((item) => {
+        total += menu.food[item] || menu.drink[item]; 
+      });
+      return total;
+    },
   };
   return fn;
 };
 
-const meuRestaurante = createMenu({
-  food: { coxinha: 3.90, sanduiche: 9.90 },
-  drinks: { agua: 3.90, cerveja: 6.90 },
-});
-meuRestaurante.order('coxinha');
-console.log(meuRestaurante.consumption);
+// função pay eu precisei ir fazer code review em alguns codigos da turma, pq o meu sempre voltava erro,
+// sempre ajuda fazer codereview. O código do Jota e do breno me ajudaram bastante.
 
 module.exports = createMenu;
